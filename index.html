@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Amazon VPC Peering</title>
+</head>
+<body>
+        <div class="centered-text">
+
+        <h1>Amazon VPC Peering</h1>
+        
+        <img class="myImage" src="download.png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+        
+        <h2>Project Overview:</h2>
+        <p>VPC Peering is an AWS networking feature that allows two VPCs to communicate using private IP addresses. It’s ideal for connecting environments like development and production, or linking services across accounts. Peering is non-transitive, meaning if VPC A peers with B and B peers with C, A cannot talk to C unless explicitly peered.</p>
+        
+        <h3>Steps taken to complets this project :</h3>
+            <h4>1. Plan Your VPC's</h4>
+            <img class="myImage" src="Screenshot (1).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (2).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br> 
+            <img class="myImage" src="Screenshot (5).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (6).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (7).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (10).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <p>- Ensure non-overlapping CIDR blocks between the two VPCs. <br>
+            - Decide whether the VPCs are in the same account or different ones. <br>
+            - Confirm region compatibility if doing cross-region peering.</p>
+            <br>
+            <h4>2. Create the Peering Connection</h4>
+            
+            <img class="myImage" src="Screenshot (11).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (12).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (13).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (14).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (15).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (16).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (17).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <p>- Go to the VPC Dashboard in AWS. <br>
+            - Choose “Peering Connections” → “Create Peering Connection.” <br>
+            - Select the requester VPC and specify the accepter VPC (can be in another account or another region). <br>
+            - Add a name tag for clarity.</p>
+            <br>
+            <h4>3. Accept the Peering Request </h4>
+            <br>
+            <img class="myImage" src="Screenshot (18).png" alt="Amazon EC2" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (19).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">   
+            <br>
+            <img class="myImage" src="Screenshot (20).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (21).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <p>- In the accepter account (or same account), go to Peering Connections. <br>
+            - Find the pending request and click “Accept.”</p>
+            <br>
+            <h4>4. Update Route Table </h4>
+            <br>
+            <img class="myImage" src="Screenshot (22).png" alt="Amazon EC2 " style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (23).png" alt="Amazon EC2 " style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (24).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (25).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (26).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (27).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (28).png" alt="Amazon VPC" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <p>- In both VPCs, go to Route Tables. <br>
+                - Add a route that points to the peer VPC’s CIDR block via the peering connection. <br>
+                - This enables traffic flow between VPCs.</p>
+            <h4>5. Create Amazone EC2 instances</h4>
+            <br>
+            <img class="myImage" src="Screenshot (29).png" alt="AmazonEC2 " style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (30).png" alt="Amazon EC2 " style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (31).png" alt="Amazon EC2 " style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (32).png" alt="Amazon EC2 " style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (33).png" alt="Amazon EC2 " style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (34).png" alt="Amazon EC2 " style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <p>- Update security goups rules to allow traffic from the peer VPC's CIDR.<br>
+            - Launch EC2 instances in both VPC's</p>
+            <br>
+            <h4>6. Test the connection</h4>
+            <img class="myImage" src="Screenshot (37).png" alt="Amazon EC2 " style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (38).png" alt="Amazon EC2 " style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <p>- SSH into them using their public IP .</p>
+            <br>
+            <h3>Key Features</h3>
+            <p>- Secure communication without traversing the public inetrnet.<br>
+            - Low latency and cost effective data transfer<br>
+            - Cross account and region support</p>
+            <h3>Considerations</h3>
+            <p>- VPC peering does not support transitive routing. <br>
+            - You can't use overlapping CIDR blocks. <br>
+            - for complex architectures, consider Transit Gateway as an alternative</p>
+        </div>
+
+        <script src="javascript.js" charset="utf-8" ></script>
+
+</body>
+</html>
